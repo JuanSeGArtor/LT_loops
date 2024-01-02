@@ -45,8 +45,14 @@ public class Calculator {
                     System.out.println("DIVISIÓN");
                     System.out.println("Ingresa un 1er número");
                     num1 = scan.nextInt();
+
                     System.out.println("Ingresa un 2do número");
                     num2 = scan.nextInt();
+                    // Validar que no se divida entre 0 hasta que ingrese un número distinto
+                    while(num2==0) {
+                        System.out.println("Por favor señor usuario, ingrese un número distinto, ya que no se pueden realizar divisiones entre 0");
+                        num2 = scan.nextInt();
+                    };
 
                     System.out.println("El resultado de la división es: " + (num1/num2));
                     break;
