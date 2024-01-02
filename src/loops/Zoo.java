@@ -1,10 +1,12 @@
+package loops;
+
 import java.util.*;
 
 public class Zoo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Animal por defecto a mostrar
+        // loops.Animal por defecto a mostrar
         Animal animal = new Animal(
                 "Lobo Gris",
                 "Canis lupus",

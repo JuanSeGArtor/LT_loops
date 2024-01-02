@@ -1,3 +1,5 @@
+package loops;
+
 public class Animal {
     private String nombre;
     private String especie;
@@ -12,7 +14,7 @@ public class Animal {
     }
 
     public void printInfo(){
-        System.out.println("Animal info:");
+        System.out.println("loops.Animal info:");
         System.out.println("Nombre: " + this.nombre);
         System.out.println("Especie: " + this.especie);
         System.out.println("Características: " + this.caracteristicas);
