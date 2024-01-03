@@ -19,7 +19,7 @@ public class Supermarket {
 
         int op;
         do{
-            System.out.println("Supermarket menu");
+            System.out.println("Supermarket Menú");
             System.out.println("(1) Agregar nuevo producto al inventario");
             System.out.println("(2) Listar precios de venta de productos");
             System.out.println("(3) Vender productos disponibles");
@@ -42,6 +42,14 @@ public class Supermarket {
                     System.out.println("Ingresa la cantidad de unidades vendidas sí aplica:");
                     int pUnidadesVendidas = sc.nextInt();
 
+                    // Evitar que se ingresen unidades vendidades mayores a las existencias
+                    while (pUnidadesVendidas>pExistencias) {
+                        System.out.println("Las existencias que ingresó del producto son de: " + pExistencias + " no pueden haber esta cantidad de unidades vendidas: " + pUnidadesVendidas);
+
+                        System.out.println("Por favor, ingrese una cantidad menor o igual a las existencias:");
+                        pUnidadesVendidas = sc.nextInt();
+                    }
+
                     // Crear nuevo producto y agregarlo a la lista
                     Producto nuevoProd = new Producto(pNombre, pPrecio, pDisponible, pExistencias, pUnidadesVendidas);
                     inventario.add(nuevoProd);
@@ -49,24 +57,38 @@ public class Supermarket {
                     System.out.println("Producto agregado: " + nuevoProd.getNombre());
                     break;
                 case 2:
-                    System.out.println("Precio de venta cada producto");
+                    System.out.println("Info de cada producto");
 
                     for (Producto producto : inventario) {
                         System.out.println("Producto: " + producto.getNombre());
                         System.out.println("Precio: " + producto.getPrecio());
                         System.out.println("Existencias: " + producto.getExistencias());
+                        System.out.println("Unidades Vendidas: " + producto.getUnidadesVendidas());
                         System.out.println("-----------------------------------");
                     }
                     break;
                 case 3:
-                    System.out.println("Vende los productos disponibles");
-                    System.out.println("¿Está seguro de VENDER TODOS los productos disponibles? (true/false)");
+                    System.out.println("Venta de productos disponibles");
+                    System.out.println("A continuación, podrá vender los productos disponibles del inventario (ingrese -true- para continuar)");
                     boolean vender = sc.nextBoolean();
 
                     if (vender) {
                         for (Producto producto : inventario) {
                             if (producto.isDisponible()) {
-                                producto.vender();
+                                System.out.println("Ingrese la cantidad a vender del producto: " + producto.getNombre());
+                                System.out.println("Existencias: " + producto.getExistencias());
+                                int cantV = sc.nextInt();
+
+                                while (cantV > producto.getExistencias()) {
+                                    System.out.println("Las existencias son de: " + producto.getExistencias() + " por lo que no podemos vender la cantidad solicitada de: " + cantV);
+
+                                    System.out.println("Por favor, ingrese una cantidad menor o igual a las existencias:");
+                                    cantV = sc.nextInt();
+                                }
+
+                                producto.vender(cantV);
+                            } else {
+                                System.out.println("El producto: " + producto.getNombre() + " no está disponible");
                             }
                         }
                     }

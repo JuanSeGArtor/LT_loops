@@ -55,13 +55,13 @@ public class Producto {
         this.unidadesVendidas = pUnidadesVendidas;
     }
 
-    public void vender() {
-        if (this.disponible) {
-            this.unidadesVendidas = this.existencias;
-            this.existencias = 0;
-            System.out.println("Venta realizada con éxito. " + this.unidadesVendidas + "unidades vendidas de " + this.nombre);
+    public void vender(int cantV) {
+        if (cantV == 0) {
+            System.out.println("No se ha vendido ninguna unidad del producto: " + this.getNombre());
         } else {
-            System.out.println("El producto: " + nombre + " no está disponible");
+            this.unidadesVendidas = cantV;
+            this.existencias = this.existencias-cantV;
+            System.out.println("Venta realizada con éxito. " + this.unidadesVendidas + " unidades vendidas de " + this.nombre);
         }
     }
 
