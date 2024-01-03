@@ -1,11 +1,40 @@
 package collections;
 
-import java.util.Scanner;
-
 public class TemperatureRecord {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    private date date;
+    private time time;
+    private double temperature;
 
-
+    // Getters & Setters
+    public date getDate() {
+        return date;
     }
+
+    public void setDate(date date) {
+        this.date = date;
+    }
+
+    public time getTime() {
+        return time;
+    }
+
+    public void setTime(time time) {
+        this.time = time;
+    }
+
+    public double getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
+    }
+
+    public TemperatureRecord(date date, time time, double temperature) {
+        this.date = date;
+        this.time = time;
+        this.temperature = temperature;
+    }
+
+
 }
