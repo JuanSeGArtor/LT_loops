@@ -1,24 +1,27 @@
 package collections;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class TemperatureRecord {
-    private date date;
-    private time time;
+    private LocalDate date;
+    private LocalTime time;
     private double temperature;
 
     // Getters & Setters
-    public date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public time getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(time time) {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
 
@@ -30,11 +33,9 @@ public class TemperatureRecord {
         this.temperature = temperature;
     }
 
-    public TemperatureRecord(date date, time time, double temperature) {
+    public TemperatureRecord(LocalDate date, LocalTime time, double temperature) {
         this.date = date;
         this.time = time;
         this.temperature = temperature;
     }
-
-
 }
