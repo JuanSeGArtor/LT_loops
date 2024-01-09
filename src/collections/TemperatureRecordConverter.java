@@ -46,12 +46,15 @@ public class TemperatureRecordConverter {
         }
 
         sc.close();
+
+        // Imprimir temperatura más alta y más baja
+        System.out.println("Temperatura más alta: " + getHighestTemperature(celsiusRecords));
+        System.out.println("Temperatura más baja: " + getLowestTemperature(celsiusRecords));
     }
 
     // Método de conversion de lista Farenheit a lista Celsius
     public List<TemperatureRecord> convertToCelsiusRecord(List<TemperatureRecord> fahrenheitRecords) {
         List<TemperatureRecord> celsiusRecords = new ArrayList<>();
-
 
         for (TemperatureRecord temperatureRecord : fahrenheitRecords) {
             double celsius = (temperatureRecord.getTemperature() - 32) * 5 / 9;
@@ -64,5 +67,21 @@ public class TemperatureRecordConverter {
         }
 
         return celsiusRecords;
+    }
+
+    // Método para obtener la temperatura más alta
+    private static double getHighestTemperature(List<TemperatureRecord> records) {
+        return records.stream()
+                .mapToDouble(TemperatureRecord::getTemperature)
+                .max()
+                .orElse(Double.NaN);
+    }
+
+    // Método para obtener la temperatura más baja
+    private static double getLowestTemperature(List<TemperatureRecord> records) {
+        return records.stream()
+                .mapToDouble(TemperatureRecord::getTemperature)
+                .min()
+                .orElse(Double.NaN);
     }
 }
