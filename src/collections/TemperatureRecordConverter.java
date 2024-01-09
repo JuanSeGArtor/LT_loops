@@ -48,6 +48,7 @@ public class TemperatureRecordConverter {
         sc.close();
 
         // Imprimir temperatura más alta y más baja
+        System.out.println("-----------------------------------------");
         System.out.println("Temperatura más alta: " + getHighestTemperature(celsiusRecords));
         System.out.println("Temperatura más baja: " + getLowestTemperature(celsiusRecords));
     }
