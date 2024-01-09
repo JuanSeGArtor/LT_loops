@@ -1,3 +1,3 @@
 ## LT_loops
 
-Proyectito para practicar loops en Java.
+Proyectito nivelamiento para practicar loops y demás con Java.
